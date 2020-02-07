@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div class="container my-5">
+
+    <h3 th:if="${isEdit}"> Edit Card</h3>
+    <h3 th:if="${isEdit} == null or ${isEdit} == false"> Add Card</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/add-card/create-card}" th:object="${myNewCard}"
+                      method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="cardNumber" class="col-form-label">Card Number</label>
+                            <input type="text" th:field="*{cardNumber}" class="form-control" maxlength="16"
+                                   id="cardNumber" placeholder="Card Number" data-th-contenteditable="false"/>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="primaryIndcator" class="col-form-label">Primary Indicator</label>
+                            <input type="text" th:field="*{primaryIndicator}" class="form-control"
+                                   id="primaryIndcator" placeholder="Primary Indicator" contenteditable="false"/>
+                        </div>
+                        <div th:if="${availableBalance} != null and ${availableBalance.doubleValue()} > 0" class="form-group col-md-8">
+                            <label for="availableBalance" class="col-form-label">Available Balance</label>
+                            <input type="text" th:field="*{availableBalance}" class="form-control"
+                                   id="availableBalance" placeholder="Available Balance" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="actualBalance" class="col-form-label">Actual Balance</label>
+                            <input type="text" th:field="*{actualBalance}" class="form-control"
+                                   id="actualBalance" placeholder="Actual Balance" />
+                        </div>
+                        <div th:if="${isEdit}" class="form-group col-md-8">
+                            <select th:field="*{cardStatus}">
+                                <option th:each="card : ${allCardStatuses}" th:value="${card}" th:text="${card.getStatusName()}"></option>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+
+                        <input type="hidden" id="id" th:field="*{id}">
+                        <input type="hidden" id="activatedate" th:field="*{activatedate}">
+                        <input type="hidden" id="createdDate" th:field="*{createdDate}">
+                        <input type="hidden" id="expiryDate" th:field="*{expiryDate}">
+    <!--                    <input type="hidden" th:text="${#dates.format(expiryDate, 'dd-MMM-yyyy')}"></input>
+                        <input type="hidden" th:text="${#dates.format(activatedate, 'dd-MMM-yyyy')}"></input>
+                        <input type="hidden" th:text="${#dates.format(createdDate, 'dd-MMM-yyyy')}"></input>-->
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
