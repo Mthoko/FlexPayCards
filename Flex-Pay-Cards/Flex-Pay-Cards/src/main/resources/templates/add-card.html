@@ -13,6 +13,7 @@
 <body>
 <div class="container my-5">
 
+
     <h3 th:if="${isEdit}"> Edit Card</h3>
     <h3 th:if="${isEdit} == null or ${isEdit} == false"> Add Card</h3>
 
@@ -26,11 +27,6 @@
                             <label for="cardNumber" class="col-form-label">Card Number</label>
                             <input type="text" th:field="*{cardNumber}" class="form-control" maxlength="16"
                                    id="cardNumber" placeholder="Card Number" data-th-contenteditable="false"/>
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label for="primaryIndcator" class="col-form-label">Primary Indicator</label>
-                            <input type="text" th:field="*{primaryIndicator}" class="form-control"
-                                   id="primaryIndcator" placeholder="Primary Indicator" contenteditable="false"/>
                         </div>
                         <div th:if="${availableBalance} != null and ${availableBalance.doubleValue()} > 0" class="form-group col-md-8">
                             <label for="availableBalance" class="col-form-label">Available Balance</label>

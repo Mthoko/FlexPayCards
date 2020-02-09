@@ -40,5 +40,12 @@ private ClientService clientService;
         return "redirect:/add-card/all";
     }
 
+    @GetMapping("/all-clients")
+    public String getAllClient(Model model)
+    {
+        List<Client> clientList = clientService.findAllClients();
+        model.addAttribute("listOfClients", clientList);
+        return "list-clients";
+    }
 
 }

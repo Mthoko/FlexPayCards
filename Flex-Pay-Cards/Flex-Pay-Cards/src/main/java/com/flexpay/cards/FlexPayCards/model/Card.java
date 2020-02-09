@@ -2,9 +2,6 @@ package com.flexpay.cards.FlexPayCards.model;
 
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
