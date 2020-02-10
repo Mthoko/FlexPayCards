@@ -52,13 +52,13 @@
                                 <td th:text="${card.actualBalance}"></td>
                                 <td th:text="${card.availableBalance}"></td>
                                 <td>
-                                    <a th:href="@{/add-card/getEdit/{id}(id=${card.id})}"
+                                    <a th:href="@{/add-client/getEdit/{id}(id=${card.id})}"
                                        class="btn btn-primary">
                                         <i class="fas fa-user-edit ml-2"></i>
                                     </a>
                                 </td>
                                 <td>
-                                     <a th:href="@{/add-card/delete/{id}(id=${card.id})}"
+                                     <a th:href="@{/clients/delete/{id}(id=${card.id})}"
                                         class="btn btn-primary">
                                          <i class="fas fa-trash-alt ml-2"></i>
                                      </a>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 @Service
@@ -53,7 +54,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findClient(long id) {
+    public Client findClient(Optional<Long> id) {
         return clientRepository.findById(id).orElse(null);
     }
 

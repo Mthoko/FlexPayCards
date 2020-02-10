@@ -33,6 +33,7 @@
                                 <th>Cards</th>
                             </tr>
                             <tbody>
+                            <tr><td><p th:text="${listOfClients.size()}"/></td></tr>
                             <tr th:each="client : ${listOfClients}">
                                 <td th:text="${client.govId}"></td>
                                 <td th:text="${client.firstName}"></td>
